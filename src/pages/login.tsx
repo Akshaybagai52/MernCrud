@@ -1,5 +1,6 @@
 import { useLogin } from "@refinedev/core";
 import { useEffect, useRef } from "react";
+import {yariga} from '../assets'
 
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -26,7 +27,7 @@ export const Login: React.FC = () => {
       try {
         window.google.accounts.id.initialize({
           ux_mode: "popup",
-          client_id: GOOGLE_CLIENT_ID,
+          client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
           callback: async (res: CredentialResponse) => {
             if (res.credential) {
               login(res);
@@ -76,7 +77,7 @@ export const Login: React.FC = () => {
           <img
             style={{ padding: "0 5px" }}
             alt="Google"
-            src="https://refine.ams3.cdn.digitaloceanspaces.com/superplate-auth-icons%2Fgoogle.svg"
+            src={yariga}
           />
           Google
         </Typography>
